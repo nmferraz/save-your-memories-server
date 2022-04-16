@@ -21,8 +21,9 @@ app.get('/', (req, res) => {
   res.send('Hello to Save Your Memories API');
 })
 
+const CONNECTION_URL = 'mongodb+srv://nmferraz:nmferraz123@saveyourmemories.lmbms.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
   .catch((error) => console.log(error.message));
